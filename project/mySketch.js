@@ -1,30 +1,28 @@
-let f; 
+let myQuestion = "What do you do to lift your mood when you're feeling low?"
+ 
+let contents = "";
 
-function preload(){
-  f = loadFont("ROMANTIC.TTF")
-}
+let Button; 
 
 function setup() {
-  createCanvas(400, 400);
-
-  background(200);
-  textFont(f)
-  textSize(22)
-  text("do you like cabbage? left arrow = yes, right arrow = no", 100,100)
+  createCanvas(500, 400);
+  Button = createButton("show");
+  Button.position(220,80)
+  Button.mousePressed(showText)
+  
+  background(50);
+  fill(255);
+  textSize(14);
+  text(myQuestion,50,50)  
 }
 
 function draw() {
- 
-
   
 }
+function keyTyped() {
+  contents = contents + key;
+}
 
-function keyPressed(){
-  if(keyCode === LEFT_ARROW){
-    fill("pink")
-  }  
-  if(keyCode === RIGHT_ARROW){
-    fill("green")
-  }  
-  ellipse(random(0,400),random(0,400),10,10)  
+function showText(){
+   text(contents, 50, 250, 400, 200);
 }
